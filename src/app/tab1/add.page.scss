@@ -1,0 +1,98 @@
+.custom-searchbar {
+    --background: rgba(255, 255, 255, 0.2);
+    --color: #ffffff;
+    --placeholder-color: rgba(255, 255, 255, 0.6);
+    --border-radius: 24px;
+    --box-shadow: none;
+    padding: 0 8px;
+}
+
+.help-button {
+    --color: #ffffff;
+}
+
+.search-content {
+    --background: #f8f9fa;
+    
+    .item-card {
+        --background: #ffffff;
+        --padding-start: 16px;
+        --padding-end: 16px;
+        --inner-padding-end: 8px;
+        margin: 8px;
+        border-radius: 12px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s ease;
+        
+        &:active {
+            transform: scale(0.98);
+        }
+    }
+    
+    .item-label {
+        margin: 12px 0;
+        
+        .item-name {
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        
+        .item-price {
+            margin: 0;
+            font-size: 0.9rem;
+            
+            ion-text {
+                font-weight: 600;
+            }
+        }
+    }
+    
+    .empty-state {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 60vh;
+        text-align: center;
+        padding: 20px;
+        
+        ion-icon {
+            font-size: 64px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+        
+        h3 {
+            color: var(--ion-color-medium);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        p {
+            color: var(--ion-color-medium);
+            margin: 0;
+            font-size: 0.9rem;
+        }
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .search-content {
+        --background: #121212;
+        
+        .item-card {
+            --background: #1e1e1e;
+        }
+        
+        .empty-state {
+            ion-icon, h3, p {
+                opacity: 0.7;
+            }
+        }
+    }
+    
+    .custom-searchbar {
+        --background: rgba(255, 255, 255, 0.1);
+    }
+}
