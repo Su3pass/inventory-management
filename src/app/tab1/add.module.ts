@@ -2,18 +2,17 @@ import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { AddPage } from './tab1.page';  // 修正导入名称（原为Tab1Page）
-import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
-import { AddPageRoutingModule } from './add-routing.module';  // 修正导入名称（原为Tab1PageRoutingModule）
+import { Tab1Page } from './tab1.page';
+
+import { Tab1PageRoutingModule } from './tab1-routing.module';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-    ExploreContainerComponentModule,
-    AddPageRoutingModule  // 修正大小写（原为addPageRoutingModule）
+    Tab1PageRoutingModule
   ],
-  declarations: [AddPage]
+  declarations: [Tab1Page]
 })
-export class AddPageModule {}
+export class Tab1PageModule {}
