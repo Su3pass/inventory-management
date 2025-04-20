@@ -1,0 +1,51 @@
+<ion-app>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Help Center</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+   <ion-card>
+     <ion-card-header>
+       <ion-card-title>Frequently asked questions</ion-card-title>
+     </ion-card-header>
+     <ion-card-content>
+       <ion-accordion-group>
+         <ion-accordion value="add">
+           <ion-item slot="header">
+              <ion-label>How to add a new item?</ion-label>
+            </ion-item>
+            <div slot="content">
+              <p>1. Navigate to the 'Add' page</p>
+             <p>2. Fill in all required fields</p>
+              <p>3. Click the 'Add' button to submit</p>
+            </div>
+          </ion-accordion>
+        
+          <ion-accordion value="search">
+            <ion-item slot="header">
+              <ion-label>How to search for items?</ion-label>
+            </ion-item>
+           <div slot="content">
+              <p>1. Navigate to the "Search" page</p>
+              <p>2. Enter the item name in the search bar</p>
+              <p>3. The results will be automatically filtered and displayed</p>
+            </div>
+         </ion-accordion>
+        
+         <ion-accordion value="update">
+           <ion-item slot="header">
+             <ion-label>How to update or delete items?</ion-label>
+            </ion-item>
+            <div slot="content">
+              <p>1. Navigate to the 'Update' page</p>
+              <p>2. Search for the item to be edited</p>
+              <p>3. After modifying the information, click "Update" or click "Delete" to remove the item</p>
+            </div>
+          </ion-accordion>
+        </ion-accordion-group>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+</ion-app>
