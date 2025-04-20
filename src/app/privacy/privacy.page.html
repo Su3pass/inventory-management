@@ -15,6 +15,8 @@
       <ion-card-title>Privacy and Security Policy</ion-card-title>
     </ion-card-header>
     <ion-card-content>
+      <ion-list lines="none">  
+    <ion-card-content>
       <h3>Data Collection</h3>
       <p>We only collect necessary inventory management data, including basic information such as project names, quantities, prices, etc.</p>
       
@@ -25,4 +27,7 @@
       <p>The collected data is only used for inventory management purposes and will not be shared with third parties.</p>
     </ion-card-content>
   </ion-card>
+  <ion-note class="ion-padding" color="medium">
+    <small>Date: {{ currentDate | date:'yyyy-MM-dd' }}</small>
+  </ion-note>
 </ion-content>
