@@ -1,51 +1,43 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpService } from '../service/http.service';
 
-
 @Component({
-    selector: 'app-tab2',
-    templateUrl: 'tab2.page.html',
-    styleUrls: ['tab2.page.scss']
+    selector: 'app-tab1',
+    templateUrl: 'tab1.page.html',
+    styleUrls: ['tab1.page.scss']
 })
-export class Tab2Page {
-    featured = [];
-    isModalOpen = false;
-    itemName = '';
-    category = '';
-    quantity = '';
-    price = '';
-    supplierName = '';
-    stockStatus = '';
-    featuredItem = '';
-    specialNote = '';
-    constructor(private http: HttpService) { }
+export class Tab1Page implements OnInit, OnDestroy {
+    private reloadListener: any;
+
+    constructor(private http: HttpService) {
+        // Initialize the reload listener
+        this.reloadListener = () => {
+            this.getAll();
+        };
+    }
+
+    goods = []
+    inputModel = ''
+
     ngOnInit() {
-        this.getFeatured();
+        window.addEventListener('reload-tab1', this.reloadListener);
+        this.getAll();
     }
-    getFeatured(){
-        this.http.getAll('').subscribe((res: any)=>{
-            this.featured = res.filter(item=>item.featured_item === 1);
-        })
+
+    ngOnDestroy() {
+        window.removeEventListener('reload-tab1', this.reloadListener);
     }
-    showModal(){
-        this.isModalOpen = true;
+
+    search() {
+        this.goods = [];
+        this.getAll();
     }
-    create(){
-        this.http.create({
-            item_name: this.itemName,
-            category: this.category,
-            quantity: this.quantity,
-            price: this.price,
-            supplier_name: this.supplierName,
-            stock_status: this.stockStatus,
-            featured_item: this.featuredItem,
-            special_note: this.specialNote,
-        }).subscribe((res: any)=>{
-            this.getFeatured();
-            this.isModalOpen = false;
-        })
-    }
-    setOpen(isOpen: boolean) {
-        this.isModalOpen = isOpen;
+
+    getAll() {
+        this.http.getAll(this.inputModel)
+            .subscribe((res: any) => {
+                console.log(res)
+                this.goods = res;
+            })
     }
 }
