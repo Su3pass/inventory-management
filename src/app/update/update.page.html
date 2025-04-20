@@ -1,26 +1,85 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Update</ion-title>
-    <ion-buttons slot="end">
-      <ion-button [routerLink]="['/tabs/helping']">
-        <ion-icon slot="icon-only" name="help-circle"></ion-icon>
-      </ion-button>
-    </ion-buttons>
+      <ion-buttons slot="secondary">
+          <ion-button fill="solid" routerLink="/help">
+              Help
+          </ion-button>
+      </ion-buttons>
+      <ion-title>Featured</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content class="ion-padding">
-  <ion-searchbar placeholder="Search for item name to edit"></ion-searchbar>
-  
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Edit Item</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <!-- 编辑表单将在后续开发中添加 -->
-      <p>The item editing form will be displayed here</p>
-      <ion-button expand="block" color="primary">Update</ion-button>
-      <ion-button expand="block" color="danger">Delete</ion-button>
-    </ion-card-content>
-  </ion-card>
+<ion-content>
+  <div class="post">
+      <ion-button (click)="showModal()" style=" margin-top: 20px">Post</ion-button>
+  </div>
+  <ion-modal [isOpen]="isModalOpen">
+      <ng-template>
+          <ion-header>
+              <ion-toolbar>
+                  <ion-title>Post</ion-title>
+                  <ion-buttons slot="end">
+                      <ion-button (click)="setOpen(false)">Close</ion-button>
+                  </ion-buttons>
+              </ion-toolbar>
+          </ion-header>
+          <ion-content class="ion-padding">
+              <ion-item>
+                  <ion-label>Item Name</ion-label>
+                  <ion-input type="text" [(ngModel)]="itemName"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label>Category</ion-label>
+                  <ion-select [(ngModel)]="category">
+                      <ion-select-option value="Electronics">Electronics</ion-select-option>
+                      <ion-select-option value="Furniture">Furniture</ion-select-option>
+                      <ion-select-option value="Clothing">Clothing</ion-select-option>
+                      <ion-select-option value="Tools">Tools</ion-select-option>
+                      <ion-select-option value="Miscellaneous">Miscellaneous</ion-select-option>
+                  </ion-select>
+              </ion-item>
+              <ion-item>
+                  <ion-label>Quantity</ion-label>
+                  <ion-input type="number" [(ngModel)]="quantity"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label>Price</ion-label>
+                  <ion-input type="number" [(ngModel)]="price"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label>Supplier Name</ion-label>
+                  <ion-input type="text" [(ngModel)]="supplierName"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label>Stock Status</ion-label>
+                  <ion-select [(ngModel)]="stockStatus">
+                      <ion-select-option value="In Stock">In Stock</ion-select-option>
+                      <ion-select-option value="Low Stock">Low Stock</ion-select-option>
+                      <ion-select-option value="Out of Stock">Out of Stock</ion-select-option>
+                  </ion-select>
+              </ion-item>
+              <ion-item>
+                  <ion-label>Featured Item</ion-label>
+                  <ion-select [(ngModel)]="featuredItem">
+                      <ion-select-option value="1">Yes</ion-select-option>
+                      <ion-select-option value="0">No</ion-select-option>
+                  </ion-select>
+              </ion-item>
+              <ion-item>
+                  <ion-label>Special Note</ion-label>
+                  <ion-input type="text" [(ngModel)]="specialNote"></ion-input>
+              </ion-item>
+              <ion-button style="margin-top: 20px;" expand="full" (click)="create()">Create</ion-button>
+          </ion-content>
+      </ng-template>
+  </ion-modal>
+  <ion-item button *ngFor="let item of featured">
+      <ion-label routerLink="/detail" [queryParams]="{name: item.item_name}">
+          <h3>
+              {{item.item_name}}
+              <ion-badge color="primary" style="float: right;">
+                  {{item.price}}
+              </ion-badge>
+          </h3>
+      </ion-label>
+  </ion-item>
 </ion-content>

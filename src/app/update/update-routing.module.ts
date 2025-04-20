@@ -1,16 +1,19 @@
+import { IonicModule } from '@ionic/angular';
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { UpdatePage } from './update.page';  // 更新导入
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Tab2Page } from './tab2.page';
 
-const routes: Routes = [
-  {
-    path: '',
-    component: UpdatePage,
-  }
-];
+import { Tab2PageRoutingModule } from './tab2-routing.module';
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  imports: [
+    IonicModule,
+    CommonModule,
+    FormsModule,
+    Tab2PageRoutingModule
+  ],
+  declarations: [Tab2Page]
 })
-export class UpdatePageRoutingModule {}
+export class Tab2PageModule {}
