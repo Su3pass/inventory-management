@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
-import { AddPage } from './add.page'; // 修改导入名称
+import { AddPage } from './tab1.page'; // 修改导入名称
 
 describe('AddPage', () => { // 修改描述名称
   let component: AddPage;
