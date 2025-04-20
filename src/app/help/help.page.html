@@ -1,51 +1,47 @@
-<ion-app>
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Help Center</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button text="" default-href="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Help</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-  <ion-content class="ion-padding">
-   <ion-card>
-     <ion-card-header>
-       <ion-card-title>Frequently asked questions</ion-card-title>
-     </ion-card-header>
-     <ion-card-content>
-       <ion-accordion-group>
-         <ion-accordion value="add">
-           <ion-item slot="header">
-              <ion-label>How to add a new item?</ion-label>
-            </ion-item>
-            <div slot="content">
-              <p>1. Navigate to the 'Add' page</p>
-             <p>2. Fill in all required fields</p>
-              <p>3. Click the 'Add' button to submit</p>
-            </div>
-          </ion-accordion>
-        
-          <ion-accordion value="search">
-            <ion-item slot="header">
-              <ion-label>How to search for items?</ion-label>
-            </ion-item>
-           <div slot="content">
-              <p>1. Navigate to the "Search" page</p>
-              <p>2. Enter the item name in the search bar</p>
-              <p>3. The results will be automatically filtered and displayed</p>
-            </div>
-         </ion-accordion>
-        
-         <ion-accordion value="update">
-           <ion-item slot="header">
-             <ion-label>How to update or delete items?</ion-label>
-            </ion-item>
-            <div slot="content">
-              <p>1. Navigate to the 'Update' page</p>
-              <p>2. Search for the item to be edited</p>
-              <p>3. After modifying the information, click "Update" or click "Delete" to remove the item</p>
-            </div>
-          </ion-accordion>
-        </ion-accordion-group>
-      </ion-card-content>
-    </ion-card>
-  </ion-content>
-</ion-app>
+<ion-content class="ion-padding">
+  <h1>Help and Troubleshooting</h1>
+  <section>
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+          <h3>How do I add a new item?</h3>
+          <p>Go to the "Items" page, fill out the form with the item details, and click "Add Item".</p>
+      </div>
+      <div class="faq-item">
+          <h3>How can I edit an existing item?</h3>
+            <p>On the "Items" page, find the item in the list and click the "Edit" button. Make your changes and click
+              "Update".</p>
+      </div>
+      <div class="faq-item">
+          <h3>How do I search for items?</h3>
+          <p>Go to the "Search" page and type in the search box. The results will update as you type.</p>
+      </div>
+  </section>
+  <section>
+      <h2>Troubleshooting</h2>
+      <div class="issue">
+          <h3>Items not saving</h3>
+          <p>Make sure you've filled out all required fields (marked with *) before submitting.</p>
+      </div>
+      <div class="issue">
+          <h3>Search not working</h3>
+          <p>Try refreshing the page. If the problem persists, check your internet connection.</p>
+      </div>
+      <div class="issue">
+          <h3>App looks strange</h3>
+          <p>Try clearing your browser cache or using a different browser.</p>
+      </div>
+  </section>
+  <section>
+      <h2>Contact Support</h2>
+      <p>If you're still having issues, please contact us at support&#64;24517021</p>
+  </section>
+</ion-content>
